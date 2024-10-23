@@ -2,7 +2,7 @@
 
 #include "Player.h"
 
-Player::Player(float x, float y, float width, float height, float speed)
+Player::Player(const float x, const float y, const float width, const float height, const float speed)
 {
 	Position.x = x;
 	Position.y = y;
@@ -11,15 +11,14 @@ Player::Player(float x, float y, float width, float height, float speed)
 	Speed = speed;
 }
 
-Rectangle Player::GetCollisionRect()
-{
+Rectangle Player::GetCollisionRect() const {
 	return Rectangle
 	{
 		Position.x, Position.y, Size.x, Size.y
 	};
 }
 
-void Player::Draw()
+void Player::Draw() const
 {
 	DrawRectangleV(Position, Size, RAYWHITE);
 }

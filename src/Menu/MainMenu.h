@@ -1,6 +1,8 @@
+#pragma once
+
 #include "Menu.h"
 
-class MainMenu : public Menu
+class MainMenu final : public Menu
 {
 public:
     void Draw() override;

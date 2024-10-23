@@ -20,18 +20,17 @@ int main()
 
     bool bGameplay = false;
     MainMenu mainMenu;
-    Input input;
-    Ball ball = Ball(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, 20, 20, 0.0f);
-    Player player1 = Player(0, SCREEN_HEIGHT / 2, 10, 100, 5.0f);
-    Player player2 = Player(SCREEN_WIDTH - 10, SCREEN_HEIGHT / 2, 10, 100, 5.0f);
+    Ball ball = Ball(static_cast<float>(SCREEN_WIDTH) / 2, static_cast<float>(SCREEN_HEIGHT) / 2, 20, 20, 0.0f);
+    Player player1 = Player(0, static_cast<float>(SCREEN_HEIGHT) / 2, 10, 100, 5.0f);
+    Player player2 = Player(SCREEN_WIDTH - 10, static_cast<float>(SCREEN_HEIGHT) / 2, 10, 100, 5.0f);
 
     // Main game loop
     while (!WindowShouldClose())
     {
         // Update
         //----------------------------------------------------------------------------------
-        input.HandleWS(player1);
-        input.HandleUpDown(player2);
+        Input::HandleWS(player1);
+        Input::HandleUpDown(player2);
         ball.Update();
 
         if (CheckCollisionRecs(ball.GetCollisionRect(), player1.GetCollisionRect())
@@ -58,7 +57,7 @@ int main()
             ClearBackground(BLACK);
             DrawText(
                 TextFormat(ScoreFormat, PLAYER_1_SCORE, PLAYER_2_SCORE),
-                (SCREEN_WIDTH / 2) - (MeasureText(ScoreFormat, 20) / 5),
+                SCREEN_WIDTH / 2 - MeasureText(ScoreFormat, 20) / 5,
                 20,
                 20,
                 YELLOW);
