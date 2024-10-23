@@ -7,11 +7,10 @@ public:
 	Vector2 Size = { 0, 0 };
 	Vector2 Speed = { 0, 0 };
 
-public:
 	Ball(float x, float y, float width, float height, float speed);
-	Rectangle GetCollisionRect();
+	[[nodiscard]] Rectangle GetCollisionRect() const;
 	void Update();
-	void Draw();
+	void Draw() const;
 
 private:
 	void Reset();

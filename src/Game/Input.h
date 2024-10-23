@@ -5,6 +5,6 @@
 class Input
 {
 public:
-    void HandleWS(Player& player);
-    void HandleUpDown(Player& player);
+    static void HandleWS(Player& player);
+    static void HandleUpDown(Player& player);
 };

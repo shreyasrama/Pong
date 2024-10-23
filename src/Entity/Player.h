@@ -8,8 +8,7 @@ public:
 
 	float Speed = 5.0f;
 
-public:
 	Player(float x, float y, float width, float height, float speed);
-	Rectangle GetCollisionRect();
-	void Draw();
+	[[nodiscard]] Rectangle GetCollisionRect() const;
+	void Draw() const;
 };

@@ -3,7 +3,7 @@
 #include "Ball.h"
 #include "Game/Game.h"
 
-Ball::Ball(float x, float y, float width, float height, float speed)
+Ball::Ball(const float x, const float y, const float width, const float height, const float speed)
 {
 	Position.x = x;
 	Position.y = y;
@@ -13,8 +13,7 @@ Ball::Ball(float x, float y, float width, float height, float speed)
 	Speed.y = speed;
 }
 
-Rectangle Ball::GetCollisionRect()
-{
+Rectangle Ball::GetCollisionRect() const {
 	return Rectangle
 	{
 		Position.x, Position.y, Size.x, Size.y
@@ -44,13 +43,12 @@ void Ball::Update()
 	}
 }
 
-void Ball::Draw()
-{
+void Ball::Draw() const {
 	DrawRectangleV(Position, Size, RED);
 }
 
 void Ball::Reset()
 {
-	Position.x = SCREEN_WIDTH / 2;
-	Position.y = SCREEN_HEIGHT / 2;
+	Position.x = static_cast<float>(SCREEN_WIDTH) / 2;
+	Position.y = static_cast<float>(SCREEN_HEIGHT) / 2;
 }
